@@ -1,6 +1,9 @@
 # OpenAI Chatbot
 This project is a chatbot that uses the OpenAI API to generate responses to user messages. The chatbot is built using Python and the openai library.
 
+## Screenshots
+![Example](screenshots/example.png)
+
 ## Installation
 1. Clone this repository to your local machine.
 2. Install the required packages using pip install -r requirements.txt.
