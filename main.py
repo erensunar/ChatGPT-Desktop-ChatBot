@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtCore import QAbstractListModel, QMargins, QPoint, Qt
-from PyQt5.QtGui import QColor
+from PyQt5.QtGui import QColor, QPalette
 import openai
 from PyQt5.QtWidgets import (
     QApplication,
@@ -9,7 +9,7 @@ from PyQt5.QtWidgets import (
     QMainWindow,
     QPushButton,
     QVBoxLayout,
-    QWidget
+    QWidget,
 )
 
 USER_ME = 0
@@ -119,6 +119,10 @@ class MainWindow(QMainWindow):
 
         #Arayüz için mesajların saklanacağı ListView objesi
         self.messages = QListView()
+
+        palette = QPalette()
+        palette.setColor(QPalette.Base, QColor(169,169,169))
+        self.messages.setPalette(palette)
         # Mesajları göstermek için
         self.messages.setItemDelegate(MessageDelegate())
 
@@ -151,6 +155,8 @@ class MainWindow(QMainWindow):
         return api_key
 
     def message_to(self):
+        
+        
         #Gönder butonuna tıklanınca mesaj inputtan alınır.
         #Yazılan mesaj me olarak mesaj modeline eklenir
         self.model.add_message(USER_ME, self.message_input.text())
@@ -170,11 +176,17 @@ class MainWindow(QMainWindow):
         #Chatgptden gelen mesaj chatgpt mesaj listesine eklenir
         self.messages_gpt.append({"role": "assistant", "content": chat_response})
 
+        #Mesaj kutucuğunu temizler
+        self.message_input.clear()
+
 
 
 
 app = QApplication(sys.argv)
 window = MainWindow()
-window.setWindowTitle("Sağlık Asistanım")
+window.setWindowTitle("Sağlık Asistanım 🩺")
+palette = QPalette()
+palette.setColor(QPalette.Window, QColor(80, 80, 80))
+window.setPalette(palette)
 window.show()
 app.exec_()
