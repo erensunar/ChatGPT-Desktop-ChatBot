@@ -16,6 +16,14 @@ The chatbot will prompt the user to enter a message. Once the user has entered a
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+## ☕ Support the Developer
+
+If this project helped you or saved you some time, consider buying me a coffee.  
+It helps me stay motivated and keep building useful open-source tools.  
+Thank you! 🙌
+
+👉 [Buy Me a Coffee](https://coff.ee/erensunar)
+
 
 
 
